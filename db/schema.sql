@@ -1,53 +1,44 @@
---Creates department database and sets table params
-DROP DATABASE IF EXISTS department_db;
-CREATE DATABASE department_db;
+--deleting employees database if it exists
+DROP DATABASE IF EXISTS employees;
+--creating database employees
+CREATE DATABASE employees;
 
-USE department_db;
 
+
+
+--selects employees database where the tables will be made
+USE employees_db;
+--Creates department table and sets table params
 CREATE TABLE department (
     id INT AUTO_INCREMENT NOT NULL,
-    name VARCHAR(30)
+    name VARCHAR(30) NOT NULL
 );
 
+--Creates role table and sets table params also links to department(id)
 
-DROP DATABASE IF EXISTS role_db;
-CREATE DATABASE role_db;
 
-USE role_db;
---Creates role database and sets table params also links to department(id)
 CREATE TABLE role (
     id INT AUTO_INCREMENT NOT NULL,
-    title VARCHAR(30),
-    salary decimal,
-    department_id INT,
+    title VARCHAR(30) NOT NULL,
+    salary decimal NOT NULL,
+    department_id INT NOT NULL,
     FOREIGN KEY(department_id)
     REFERENCES department(id)
-    ON DELETE SET NULLemployee
---Creates employee database and sets table params also links to role(id)
-DROP DATABASE IF EXISTS employee_db;
-CREATE DATABASE employee_db;
+    ON DELETE SET NULL
 
-USE employee_db;
+--Creates employee table and sets table params also links to role(id)
+
+
 
 CREATE TABLE employee (
-    IF title==manager THEN
+    
     id INT AUTO_INCREMENT NOT NULL,
-    first_name VARCHAR(30),
-    last_name VARCHAR(30),
-    role_id INT,
-    manager_id=id,
-    FOREIGN KEY(role_id,title)
-    REFERENCES role(id,title)
-    ON DELETE SET NULL
-
-    END IF;
-
-    id INT AUTO_INCREMENT NOT NULL,
-    first_name VARCHAR(30),
-    last_name VARCHAR(30),
-    role_id INT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT NOT NULL,
     manager_id=INT,
-    FOREIGN KEY(role_id,title)
-    REFERENCES role(id,title)
+    FOREIGN KEY(role_id)
+    REFERENCES role(id)
     ON DELETE SET NULL
+
 );
