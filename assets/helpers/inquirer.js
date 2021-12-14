@@ -4,7 +4,7 @@ module.exports ={
             type: 'list',
             name: 'mainMenu',
             message: 'Welcome to the employees_db main menu. What would you like to do?',
-            choices: ['Add employee','Add department','Add role','View Department','View Roles' ]
+            choices: ['Add Department','View All Departments','Add Role','View All Roles','Add Employee','View All Employees', 'Update Employee Role']
         }
     ],
 
@@ -18,7 +18,7 @@ module.exports ={
         },
     
 
-    role:[
+    addRole:[
         {type: 'input',
         name: 'roleName',
         message: 'What is the name of the role you would like to add?'},
@@ -39,6 +39,18 @@ module.exports ={
             type: 'input',
             name: 'lastName',
             message: 'What is the last name of the employee you would like to add?'
+        },
+        {
+            type: 'list',
+            message: 'Select the employee\'s role',
+            name: 'role',
+            choices:[...roles]
+        },
+        {
+            type: 'list',
+            message: 'Select the employee\'s manager',
+            name: 'manager',
+            choices:[...managers, null]
         }
     ]
 
