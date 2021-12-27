@@ -136,7 +136,6 @@ async function main() {
                 const resp = await query(`SELECT role.id as id, role.title as title FROM role`)
                 const roleObj = (resp)
                 const roles = []
-                console.log(resp)
                 for (var i = 0; i < roleObj.length; i++) {
                     roles.push({ name: roleObj[i].title, value: roleObj[i].id })
                 }
