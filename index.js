@@ -31,8 +31,8 @@ async function main() {
                     name: 'departmentName',
                     message: 'What is the name of the department you would like to create?'
                 })
-                query(`INSERT into department (name) VALUES('"${promptDept.departmentName}"');`)
-                console.log(`${promptDept.departmentName} has been added to departments!`)
+                query(`INSERT into department (name) VALUES('${promptDept.departmentName}');`)
+                console.log(`${promptDept.departmentName} has been added to the department table!`)
                 break;
             }
 
@@ -63,7 +63,7 @@ async function main() {
                 ])
                 query(`INSERT into role (title, salary, department_id) VALUES("${promptRole.title}",${promptRole.salary},${promptRole.departmentId});`)
 
-                console.log(`${promptRole.title} has been added to roles!`)
+                console.log(`${promptRole.title} has been added to the role table!`)
                 break;
             }
 
@@ -99,12 +99,12 @@ async function main() {
                 ])
                 if (promptEmployee.manager_id){
                     query(`INSERT into employee (first_name, last_name, role_id, manager_id) VALUES ("${promptEmployee.first_name}","${promptEmployee.last_name}",${promptEmployee.role_id},${promptEmployee.manager_id});`)
-                    console.log(promptEmployee.first_name + " " + promptEmployee.last_name + " has been added to employee table!")
+                    console.log(promptEmployee.first_name + " " + promptEmployee.last_name + " has been added to the employee table!")
                     break;
                 }
                 else {
                     query(`INSERT into employee (first_name, last_name, role_id) VALUES ("${promptEmployee.first_name}","${promptEmployee.last_name}",${promptEmployee.role_id});`)
-                    console.log(promptEmployee.first_name + " " + promptEmployee.last_name + " has been added to employee table!")
+                    console.log(promptEmployee.first_name + " " + promptEmployee.last_name + " has been added to the employee table!")
                     break;
                 }
                 
